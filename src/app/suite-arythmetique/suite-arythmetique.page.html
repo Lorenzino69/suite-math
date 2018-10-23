@@ -1,0 +1,84 @@
+<ion-header>
+    <ion-menu>
+        <ion-header>
+            <ion-toolbar>
+                <ion-title>Menu</ion-title>
+            </ion-toolbar>
+        </ion-header>
+        <ion-content>
+            <ion-list>
+                <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
+                    <ion-item [routerDirection]="'root'" [routerLink]="[p.url]">
+                        <ion-icon slot="start" [name]="p.icon"></ion-icon>
+                        <ion-label>
+                            {{p.title}}
+                        </ion-label>
+                    </ion-item>
+                </ion-menu-toggle>
+            </ion-list>
+        </ion-content>
+    </ion-menu>
+    <ion-toolbar class="toolbar" color="primary">
+        <ion-title>
+            <ion-icon name="calculator"></ion-icon>
+            Suite Arythmetique
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content padding>
+    <ion-item>
+        <ion-label text-wrap style="padding-bottom:50px;"><strong>Veuillez renseigner les différentes variables de la
+            suite arythmétique</strong></ion-label>
+    </ion-item>
+    <ion-item>
+        <ion-label text-wrap style="padding-bottom:20px;color:red;">Formule de base :</ion-label>
+        <ion-img width="60" height="60" padding-bottom="500" src="assets/arythmetique.svg"></ion-img>
+    </ion-item>
+
+    <form id="myform" (ngSubmit)="logForm('elements')">
+        <ion-item>
+            <ion-input placeholder="Premier terme de la série (U0)" type="text" [(ngModel)]="U0" id="U0"
+                       name="terme"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-input placeholder="Raison(r)" type="text" [(ngModel)]="r" name="r" id="r"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-input placeholder="index de l'élément (n)" type="text" [(ngModel)]="n" name="n" id="n"></ion-input>
+        </ion-item>
+        <ion-button class="calcul" ion-button round type="submit" color="secondary" block>Calculez</ion-button>
+        <ion-button class="effacer" ion-button round (click)="clear()" color="warning" block>Effacer</ion-button>
+    </form>
+    <div class="a_afficher" id="elements">
+        <ion-row>
+            <ion-row *ngFor="let element of u" class="col">
+                <ion-item class="element">
+                    <b>{{ element }}</b>
+                </ion-item>
+            </ion-row>
+        </ion-row>
+        <ion-row>
+            <ion-row *ngFor="let elements of ELEMENTS" class="col">
+                <ion-item>{{elements}}</ion-item>
+            </ion-row>
+        </ion-row>
+        <ion-label>La raison est = {{this.r}}</ion-label>
+
+        <ion-label><b>Rentrer l'élément de la suite voulu (exemple U45 => 45)</b></ion-label>
+        <ion-label>
+            <form id="myform2" (ngSubmit)="Search('elements2')">
+                <ion-item>
+                    <ion-input placeholder="éléments a rechercher" type="text" [(ngModel)]="n2" name="n2" id="n2"></ion-input>
+                </ion-item>
+                <ion-button class="calcul" ion-button round type="submit" color="secondary" block>Rechercher</ion-button>
+            </form>
+        </ion-label>
+    </div>
+    <div class="a_afficher2" id="elements2">
+        <ion-label text-wrap>L'élément recherché <i>U{{this.n2}}</i> est égale a <b>{{this.elem_rechercher}}</b></ion-label>
+    </div>
+
+
+
+</ion-content>
+
