@@ -44,7 +44,7 @@
             <ion-input placeholder="Raison(r)" type="text" [(ngModel)]="r" name="r" id="r"></ion-input>
         </ion-item>
         <ion-item>
-            <ion-input placeholder="index de l'élément (n)" type="text" [(ngModel)]="n" name="n" id="n"></ion-input>
+            <ion-input placeholder="Nombre d'élements voulu (n)" type="text" [(ngModel)]="n" name="n" id="n"></ion-input>
         </ion-item>
         <ion-button class="calcul" ion-button round type="submit" color="secondary" block>Calculez</ion-button>
         <ion-button class="effacer" ion-button round (click)="clear()" color="warning" block>Effacer</ion-button>
@@ -61,6 +61,12 @@
             <ion-row *ngFor="let elements of ELEMENTS" class="col">
                 <ion-item>{{elements}}</ion-item>
             </ion-row>
+            <!--<ion-item>-->
+                <!--<ion-label>Gender</ion-label>-->
+                <!--<ion-select [(ngModel)]="ELEMENTS">-->
+                    <!--<ion-option *ngFor="let elements of ELEMENTS">{{elements}}</ion-option>-->
+                <!--</ion-select>-->
+            <!--</ion-item>-->
         </ion-row>
         <ion-label>La raison est = {{this.r}}</ion-label>
 
@@ -75,7 +81,23 @@
         </ion-label>
     </div>
     <div class="a_afficher2" id="elements2">
+        <ion-item>
         <ion-label text-wrap>L'élément recherché <i>U{{this.n2}}</i> est égale a <b>{{this.elem_rechercher}}</b></ion-label>
+        </ion-item>
+        <form id="myform3" (ngSubmit)="Search('elements2')">
+
+            <ion-label text-wrap>Rechercher a nouveau</ion-label>
+            <ion-item>
+                <ion-input placeholder="éléments a rechercher" type="text" [(ngModel)]="n2" name="n2" id="n3"></ion-input>
+            </ion-item>
+            <ion-button class="Rechercher" ion-button round type="submit" color="secondary" block>Rechercher</ion-button>
+        </form>
+    </div>
+
+    <div class="erreur" id="erreur">
+        <ion-label text-wrap> Veuillez remplir les 3 champs afin de pouvoir calculer la suite
+            <ion-img width="60" height="60" padding-bottom="500" src="assets/attention.svg"></ion-img>
+        </ion-label>
     </div>
 
 

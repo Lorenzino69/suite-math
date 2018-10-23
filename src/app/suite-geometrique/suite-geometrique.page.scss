@@ -1,0 +1,46 @@
+.calcul {
+  margin-top: 100px;
+}
+.effacer {
+  margin-top: 100px;
+  float:right;
+}
+
+.ion-button.calcul {
+  width: 350% !important;
+}
+
+.a_afficher {
+  display: none;
+}
+.a_afficher2{
+  display: none;
+}
+.erreur{
+  display: none;
+  color:red;
+}
+.Rechercher{
+  float: start;
+}
+
+.header .col {
+  background-color: lightgrey;
+}
+
+.col2{
+  width:60px !important;
+}
+
+.col:last-child {
+  border-right: solid 1px grey;
+}
+
+.row:last-child .col {
+  border-bottom: solid 1px grey;
+}
+
+.element{
+  color: red;
+}
+

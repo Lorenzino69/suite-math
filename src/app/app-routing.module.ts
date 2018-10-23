@@ -16,7 +16,8 @@ const routes: Routes = [
     loadChildren: './list/list.module#ListPageModule'
   },
   { path: 'suite-arythmetique', loadChildren: './suite-arythmetique/suite-arythmetique.module#SuiteArythmetiquePageModule' },
-  { path: 'suite-geometrique', loadChildren: './suite-geometrique/suite-geometrique.module#SuiteGeometriquePageModule' }
+  { path: 'suite-geometrique', loadChildren: './suite-geometrique/suite-geometrique.module#SuiteGeometriquePageModule' },
+  { path: 'somme-suite', loadChildren: './somme-suite/somme-suite.module#SommeSuitePageModule' }
 ];
 
 @NgModule({

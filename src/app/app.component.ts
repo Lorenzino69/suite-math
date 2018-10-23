@@ -18,8 +18,13 @@ export class AppComponent {
     {
       title: 'Suite-geometrique',
       url: '/suite-geometrique',
-      icon: 'ios-calculator'
-    }
+      icon: 'ios-barcode'
+    },
+      {
+          title: 'Somme-suite',
+          url: '/somme-suite',
+          icon: 'ios-add'
+      }
   ];
 
   constructor(

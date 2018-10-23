@@ -17,7 +17,7 @@ export class SuiteArythmetiquePage implements OnInit {
     public U0;
     public u = [];
     public list = [];
-    public ELEMENTS = [{}];
+    public ELEMENTS: {}[] = [{}];
 
 
     constructor() {
@@ -31,6 +31,12 @@ export class SuiteArythmetiquePage implements OnInit {
     logForm(id) {
 
 
+        if (this.n === undefined || this.r === undefined || this.U0 === undefined) {
+            this.clear();
+            this.erreur();
+            return;
+        }
+
         for (let i = 0; i <= this.n; i++) {
             this.ELEMENTS[i] = +this.U0 + +(this.r * i);
             this.u[i] = 'U' + i;
@@ -38,20 +44,14 @@ export class SuiteArythmetiquePage implements OnInit {
 
         if (document.getElementById(id).style.display = 'none') {
             document.getElementById(id).style.display = 'block';
+            document.getElementById('erreur').style.display = 'none';
         } else {
             document.getElementById(id).style.display = 'none';
         }
         console.log(this.ELEMENTS);
 
         return this.ELEMENTS;
-    }
 
-    show() {
-        if (this.ELEMENTS.length > 15) {
-            return false;
-        } else {
-            return true;
-        }
     }
 
     Search(id) {
@@ -61,6 +61,7 @@ export class SuiteArythmetiquePage implements OnInit {
         if (document.getElementById(id).style.display = 'none') {
             document.getElementById(id).style.display = 'block';
             document.getElementById('elements').style.display = 'none';
+            document.getElementById('erreur').style.display = 'none';
         } else {
             document.getElementById(id).style.display = 'none';
         }
@@ -70,11 +71,16 @@ export class SuiteArythmetiquePage implements OnInit {
     clear() {
         this.ELEMENTS = [];
         this.elem_rechercher = 0;
-        this.U0 = null;
-        this.n = null;
-        this.r = null;
+        this.U0 = undefined;
+        this.n = undefined;
+        this.r = undefined;
         document.getElementById('elements').style.display = 'none';
         document.getElementById('elements2').style.display = 'none';
+        document.getElementById('erreur').style.display = 'none';
 
+    }
+
+    erreur() {
+        document.getElementById('erreur').style.display = 'block';
     }
 }
